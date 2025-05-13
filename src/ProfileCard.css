@@ -46,12 +46,12 @@
 }
 
 .profile-card.light-mode {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.753);
   color: #1f2937;
 }
 
 .profile-card.dark-mode {
-  background-color: #1b4332;
+  background-color: #1b4332b5;
   color: white;
 }
 
