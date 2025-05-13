@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ProfileCard from './assets/ProfileCard';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
   const [fadeActive, setFadeActive] = useState(false);
  
-  // Sample profile data with anime character names
   const profiles = [
     {
       id: 1,
@@ -41,25 +42,21 @@ function App() {
   ];
  
   const toggleDarkMode = () => {
-    // Activate fade transition
     setFadeActive(true);
-    
-    // Apply theme change after a short delay to create smooth transition
+   
     setTimeout(() => {
       setDarkMode(!darkMode);
-      
-      // Deactivate fade transition
+     
       setTimeout(() => {
         setFadeActive(false);
       }, 400);
     }, 100);
   };
 
-  // Ensure background images are preloaded for smooth transitions
   useEffect(() => {
     const lightBg = new Image();
     lightBg.src = './public/img/day.webp';
-    
+   
     const darkBg = new Image();
     darkBg.src = './public/img/night.webp';
   }, []);
@@ -68,15 +65,19 @@ function App() {
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       {/* Fade transition overlay */}
       <div className={`theme-transition-fade ${fadeActive ? 'active' : ''}`}></div>
-      
+     
       <div className="content-wrapper">
         {/* Dark Mode Toggle */}
         <div className="toggle-container">
           <button
             onClick={toggleDarkMode}
             className={`toggle-button ${darkMode ? 'dark-mode' : 'light-mode'}`}
+            aria-label={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
           >
-            Switch to {darkMode ? 'Light' : 'Dark'} Mode
+            <FontAwesomeIcon 
+              icon={darkMode ? faSun : faMoon} 
+              size="lg"
+            />
           </button>
         </div>
        

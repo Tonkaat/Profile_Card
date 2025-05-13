@@ -39,7 +39,6 @@ body, html {
   opacity: 1;
 }
 
-/* Overlay for better readability */
 .app-container::after {
   content: '';
   position: absolute;
@@ -59,7 +58,6 @@ body, html {
   background: linear-gradient(90deg, rgba(5, 30, 6, 0.5), rgba(0, 0, 0, 0.5));
 }
 
-
 .content-wrapper {
   max-width: 1152px;
   margin: 0 auto;
@@ -74,17 +72,21 @@ body, html {
 }
 
 .toggle-button {
-  padding: 8px 24px;
-  border-radius: 9999px;
-  font-weight: 500;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease, background-color 0.4s ease, color 0.4s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .toggle-button:active {
@@ -116,7 +118,6 @@ body, html {
   gap: 40px;
 }
 
-/* Fade transition */
 .theme-transition-fade {
   position: fixed;
   top: 0;
